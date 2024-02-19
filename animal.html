@@ -16,9 +16,11 @@
 
     <input type="button" onclick="checkAnimal()" value="Check the Guess">
 </form>
-
-
 <p id="result">Correct: 0 Wrong: 0</p>
+
+<div>
+    <img id="image" onclick="selectImage()" src="tea.png" height=150px width=auto>
+</div>
 
 <script>
     var correct = 0
@@ -36,7 +38,24 @@
             alert("Grrr")
         }
         document.getElementById("result").innerHTML = ("Correct: " + correct + " Wrong: " + wrong)
-}
+    }
+    useImage = 1
+    function selectImage(){
+        switch(useImage){
+            case 1:
+                document.getElementById("image").src = "hot_cocoa.jpg"
+                useImage = 2
+                break
+            case 2:
+                document.getElementById("image").src = "milk.jpg"
+                useImage = 3
+                break
+            case 3:
+                document.getElementById("image").src = "tea.png"
+                useImage = 1
+                break
+        }
+    }
 </script>
 
 </body>
