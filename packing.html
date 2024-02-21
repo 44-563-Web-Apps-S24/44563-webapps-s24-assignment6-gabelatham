@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Packing</title>
+</head>
+<body>
+
+<h2>Gabe Packs for a Trip</h2>
+
+<form>
+    <input type="checkbox" id="packLight" name="packing" value="True">
+    <label for="packLight">Pack Light</label><br>
+
+    <input type="checkbox" id="carryOn" name="packing" value="True">
+    <label for="carryOn">Carry On</label><br>
+
+    <input type="checkbox" id="tablet" name="packing" value="False">
+    <label for="tablet">Tablet</label><br>
+
+    <button type="button" onclick="selectPack()">Select for Packing</button>
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+    let my_pack = {}
+
+    function selectPack(){
+        let my_pack = {}
+        my_pack.light = document.getElementById("packLight").checked
+        my_pack.carry = document.getElementById("carryOn").checked
+        my_pack.tablet = document.getElementById("tablet").checked
+        document.getElementById("result").innerHTML = my_pack
+    }
+</script>
+
+</body>
+</html> 
