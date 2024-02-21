@@ -22,6 +22,19 @@
 
 <p id="result">This text will be replaced </p>
 
+<form>
+    <input type="radio" id="sum" name="combine" value="sum" onclick="chooseOp()">
+    <label for="sum">Sum</label><br>
+
+    <input type="radio" id="multiply" name="combine" value="multiply" onclick="chooseOp()">
+    <label for="multiply">Multiply</label><br>
+
+    <input type="radio" id="exponent" name="combine" value="exponent" onclick="chooseOp()">
+    <label for="exponent">Exponent</label><br>
+</form>
+
+<p id="radioresult">Result Here</p>
+
 <script> 
     function discount(){
         price = Number(document.getElementById("price").value)
@@ -36,6 +49,20 @@
             myOutput = myOutput.concat(r + "% is " + total_red + "; ")
         }
         document.getElementById("result").innerHTML = myOutput
+    }
+
+    function chooseOp(){
+        price = Number(document.getElementById("price").value)
+        reduction = Number(document.getElementById("reduction").value)
+        let result = 0
+        if(document.getElementById("sum").checked){
+            result = price + reduction
+        }else if(document.getElementById("multiply").checked){
+            result = price * reduction
+        }else if(document.getElementById("exponent").checked){
+            result = price**reduction
+        }
+        document.getElementById("radioresult").innerHTML = result
     }
 </script>
 
