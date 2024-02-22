@@ -20,18 +20,47 @@
     <button type="button" onclick="selectPack()">Select for Packing</button>
 </form>
 
+<p id="result1">Result</p>
 
-<p id="result">This text will be replaced </p>
+<form>
+    <label for="month">Enter Travel Month </label>
+    <input type="text" id="month" value="May"><br>
+
+    <label for="price">Enter Price </label>
+    <input type="text" id="price"><br>
+
+    <button type="button" onclick="updatePack()">Update the pack</button>
+</form>
+
+<p id="result2">Result</p>
+
 
 <script> 
     let my_pack = {}
 
     function selectPack(){
         let my_pack = {}
-        my_pack.light = document.getElementById("packLight").checked
-        my_pack.carry = document.getElementById("carryOn").checked
-        my_pack.tablet = document.getElementById("tablet").checked
-        document.getElementById("result").innerHTML = my_pack
+        my_pack["light"] = document.getElementById("packLight").checked
+        my_pack["carry"] = document.getElementById("carryOn").checked
+        my_pack["tablet"] = document.getElementById("tablet").checked
+        let result = "My Pack: "
+        for (key in my_pack){
+            result = result.concat(key + " " + my_pack[key] + " ")
+        }
+        document.getElementById("result1").innerHTML = result
+    }
+
+    function updatePack(){
+        month = document.getElementById("month").value
+        price = document.getElementById("price").value
+        my_pack["month"] = month
+        my_pack["price"] = price
+
+        let result = "My Pack: "
+        for (key in my_pack){
+            result = result.concat(key + " " + my_pack[key] + " ")
+        }
+        document.getElementById("result2").innerHTML = result
     }
 </script>
 
